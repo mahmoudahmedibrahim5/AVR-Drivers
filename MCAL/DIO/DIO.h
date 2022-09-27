@@ -10,6 +10,11 @@
 #define OUTPUT 1
 #define INPUT_PULLUP 2
 
+#define PORT_A 0
+#define PORT_B 1
+#define PORT_C 2
+#define PORT_D 3
+
 void DIO_initPin(u8 port, u8 pin, u8 mode);
 void DIO_initPort(u8 port, u8 mode);
 
