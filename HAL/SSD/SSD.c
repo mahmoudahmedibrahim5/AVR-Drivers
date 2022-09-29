@@ -2,7 +2,7 @@
  * SSD.c
  *
  * Created: 27-Sep-22 9:03:41 PM
- * Author : ADMIN
+ * Author : Mahmoud Ahmed
  */ 
 
 #include "SSD.h"
@@ -11,25 +11,32 @@ u8  SSD_Numbers[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6
 void SSD_SetNumber(u8 port, u8 type, u8 num)
 {
 	DIO_initPort(port, OUTPUT);
-	if (type == Common_Cathode)
+	if(num <=9)
 	{
-	switch(port)
-	{
-		case 0: PORTA = SSD_Numbers[num]; break;
-		case 1: PORTB = SSD_Numbers[num]; break; 
-		case 2: PORTC = SSD_Numbers[num]; break; 
-		case 3: PORTD = SSD_Numbers[num]; break;  
-	}
-	}
-	else if(type == Common_Anode)
-	{
-		switch(port)
+		if (type == Common_Cathode)
 		{
-			case 0: PORTA = ~SSD_Numbers[num]; break;
-			case 1: PORTB = ~SSD_Numbers[num]; break;
-			case 2: PORTC = ~SSD_Numbers[num]; break;
-			case 3: PORTD = ~SSD_Numbers[num]; break;
+			switch(port)
+			{
+				case 0: PORTA = SSD_Numbers[num]; break;
+				case 1: PORTB = SSD_Numbers[num]; break;
+				case 2: PORTC = SSD_Numbers[num]; break;
+				case 3: PORTD = SSD_Numbers[num]; break;
+			}
 		}
+		else if(type == Common_Anode)
+		{
+			switch(port)
+			{
+				case 0: PORTA = ~SSD_Numbers[num]; break;
+				case 1: PORTB = ~SSD_Numbers[num]; break;
+				case 2: PORTC = ~SSD_Numbers[num]; break;
+				case 3: PORTD = ~SSD_Numbers[num]; break;
+			}
+		}
+	}
+	else
+	{
+		DIO_setPortValue(port, LOW);
 	}
 }
 
@@ -47,4 +54,10 @@ void SSD_Enable(u8 port, u8 pin, u8 mode, u8 type)
 		if(mode == ON) DIO_setPinValue(port, pin, HIGH);
 		else if(mode == OFF) DIO_setPinValue(port, pin, LOW);
 	}
+}
+
+void SSD_SetDecimalPoint(u8 port, u8 value)
+{
+	DIO_initPin(port, 7, OUTPUT);
+	DIO_setPinValue(port, 7, value);
 }

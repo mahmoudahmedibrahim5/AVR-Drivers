@@ -10,12 +10,18 @@
 
 void SSD_SetNumber(u8 port,u8 type, u8 num);
 void SSD_Enable(u8 port, u8 pin, u8 mode, u8 type);
-
+void SSD_SetDecimalPoint(u8 port, u8 value);
 
 #endif
 
 /*
-. g f e d c b a
+CONNECTIONS
+	  PORT
+0 1 2 3 4 5 6 7
+| | | | | | | |
+v v v v v v v v
+a b c d e f g .
+   7-Segment
 
 0 = a b c d e f  = 0b 0011 1111
 1 = b c		     = 0b 0000 0110
