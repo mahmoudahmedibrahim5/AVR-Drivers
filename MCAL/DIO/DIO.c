@@ -128,7 +128,7 @@ void DIO_setPortValue(u8 port, u8 value)
 			case 3: PORTD = 0xFF; break;
 		}
 	}
-	else if (value == HIGH)
+	else if (value == LOW)
 	{
 		switch (port)
 		{
