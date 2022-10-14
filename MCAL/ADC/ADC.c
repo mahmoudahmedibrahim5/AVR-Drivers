@@ -48,10 +48,6 @@ void ADC_start(u8 mode)
 
 u16 ADC_read(void)
 {
-	
-	u8 l = ADCL;
-	u8 h = ADCH;
-	u16 r = (h*256) + l;
-	return r;
+	return ADCL + (ADCH<<8);
 	
 }
