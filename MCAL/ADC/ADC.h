@@ -3,9 +3,9 @@
 
 #include "ADC_Registers.h"
 
-#define AVCC 0
-#define INTERNAL_REFERENCE 1
-#define AREF 2
+#define AREF 0
+#define AVCC 1
+#define INTERNAL_REFERENCE 3
 
 #define SINGLE_CONVERSION 0
 #define FREE_RUNNING 1
@@ -15,8 +15,7 @@
 #define ADSC 6
 #define ADEN 7
 
-
-#define prescaler2    1
+#define prescaler2    0
 #define prescaler4	  2
 #define prescaler8    3
 #define prescaler16	  4
