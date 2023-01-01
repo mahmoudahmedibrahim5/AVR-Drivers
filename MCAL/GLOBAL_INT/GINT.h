@@ -1,12 +1,11 @@
-#ifndef GIE_H_
-#define GIE_H_
+#ifndef GINT_H_
+#define GINT_H_
 
-#include "Data_Types.h"
+#include "../../Utilities/DataTypes.h"
 
-#define SREG *((volatile u8 *) 0x5F)
+#define SREG *((volatile uint8_t *) 0x5F)
 
 void GINT_Enable (void);
 void GINT_Disable (void);
 
-
-#endif /* GIE_H_ */
+#endif /* GINT_H_ */
